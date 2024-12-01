@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  name: devops-agentpool
+  demands:
+   - agent.name -equals devops-agent
+  
+  paths:
+    include:
+      - pipeline/01-initial-terraform-with-azure-backend/*
+  
+
+variables:
+  - name: tf_version
+    value: '1.9.7'
+
+stages:
+  - template: main.yaml
+    parameters:
+      tf_version: $(tf_version)
+      working_directory: $(Build.Repository.LocalPath)/pipeline/01-initial-terraform-with-azure-backend
