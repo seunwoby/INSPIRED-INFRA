@@ -115,7 +115,7 @@ stages:
 ## Step-4: Terraform Apply
 
     - deployment: DeployUatEnv
-      dependsOn: DeployUatEnv
+      dependsOn: DeployTestEnv
       displayName: DeployUatEnv
       pool:
         vmImage: 'ubuntu-latest'
