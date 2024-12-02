@@ -13,10 +13,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "Terraform"
-    storage_account_name = "adminiegterraform"
-    container_name       = "accounts"
-    key                  = "test.tfstate"
+    resource_group_name  = "terraform-storage-rg"
+    storage_account_name = "sroterraformstatex"
+    container_name       = "tfstateaks"
+    key                  = "testservice-account.tfstate"
   }
 }
 
