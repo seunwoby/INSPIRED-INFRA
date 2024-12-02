@@ -62,10 +62,10 @@ stages:
 ## Step-4: Terraform Plan (Create Plan)
 ## Step-5: Terraform Apply (Use the plan created in previous step)
 
-- stage: DeployAKSClusters
+- stage: DeployTestEnv
   jobs:
-    - deployment: DeployDevAKSCluster
-      displayName: DeployDevAKSCluster
+    - deployment: DeployTestEnv
+      displayName: DeployTestEnv
       pool:
         vmImage: 'ubuntu-latest'
       environment: $(DEV_ENVIRONMENT)      
@@ -114,9 +114,9 @@ stages:
 ## Step-3: Terraform Plan 
 ## Step-4: Terraform Apply
 
-    - deployment: DeployQAAKSCluster
-      dependsOn: DeployDevAKSCluster
-      displayName: DeployQAAKSCluster
+    - deployment: DeployUatEnv
+      dependsOn: DeployUatEnv
+      displayName: DeployUatEnv
       pool:
         vmImage: 'ubuntu-latest'
       environment: $(QA_ENVIRONMENT)      
